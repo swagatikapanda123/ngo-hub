@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-request-page',
   templateUrl: './request-page.component.html',
-  styleUrls: ['./request-page.component.css']
+  styleUrls: ['./request-page.component.css'],
 })
 export class RequestPageComponent implements OnInit {
+  Request: any = {};
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  onSubmit(): void {
+    console.log(this.Request);
   }
-
 }

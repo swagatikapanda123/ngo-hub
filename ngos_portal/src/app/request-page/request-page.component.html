@@ -1,1 +1,143 @@
-<p>request-page works!</p>
+<app-header></app-header>
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div
+      class="col-xl-7 col-lg-6 col-md-9 col-11 text-center"
+      style="margin-top: 3%"
+    >
+      <h3>REQUISITION FORM</h3>
+      <p class="blue-text">
+        Just fill these neccessary fields<br />
+        so that we can help you reach the NGO.
+      </p>
+      <div class="card">
+        <h5 class="text-center mb-4">
+          Explain the details of the problem so that NGOs can easily reach you.
+        </h5>
+        <form
+          class="form-card"
+          (ngSubmit)="onSubmit()"
+          #addTherapistForm="ngForm"
+          novalidate
+        >
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Name <span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Enter your org name"
+                [(ngModel)]="Request.Name"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >City<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Enter your City"
+                [(ngModel)]="Request.City"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Email<span class="text-danger"> *</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your org email"
+                [(ngModel)]="Request.Email"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Phone number<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="mob"
+                name="mob"
+                placeholder="Enter contact number"
+                [(ngModel)]="Request.Phone"
+              />
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >State<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="Enter your org name"
+                [(ngModel)]="Request.State"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >District<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="district"
+                name="district"
+                placeholder="Enter your district"
+                [(ngModel)]="Request.District"
+              />
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Address<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="job"
+                name="job"
+                placeholder="Enter org Address"
+                [(ngModel)]="Request.Address"
+              />
+            </div>
+
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Description<span class="text-danger"> *</span></label
+              >
+              <input
+                type="textarea"
+                id="job"
+                name="job"
+                placeholder="Enter Description"
+                [(ngModel)]="Request.Description"
+              />
+            </div>
+          </div>
+
+          <div class="row justify-content submit-btn">
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn-block btn-primary">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
