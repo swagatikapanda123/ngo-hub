@@ -1,0 +1,11 @@
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a:hover, a:active, a:focus {
+  color: #0b6bd3;
+  outline: none;
+  text-decoration: none;
+}

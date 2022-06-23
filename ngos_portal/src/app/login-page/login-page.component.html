@@ -1,0 +1,118 @@
+<div class="container h-100">
+  <div class="row justify-content-center h-100 align-items-center">
+    <div class="col-md-6">
+      <div class="authincation-content">
+        <div class="row no-gutters row-log">
+          <div class="col-xl-12">
+            <div class="auth-form">
+              <div class="text-center mb-3">
+                <a href="/dashboard"
+                  ><img
+                    src="../../assets/images/bg.png"
+                    alt=""
+                    class="img-fluid"
+                /></a>
+              </div>
+              <h4 class="text-center mb-4">Sign in Your Account</h4>
+              <form (ngSubmit)="onSubmit()" #registerForm="ngForm" novalidate>
+                <div class="container form-group">
+                  <label for="email"><b>Email</b></label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    placeholder="Enter Email"
+                    name="email"
+                    id="email"
+                    required
+                    [pattern]="emailPattern"
+                    #email="ngModel"
+                    [(ngModel)]="userDetails.Email"
+                  />
+                  <div
+                    *ngIf="email.invalid && (email.dirty || email.touched)"
+                    class="alert"
+                  >
+                    <div *ngIf="email.errors?.['required']">
+                      Email is required.
+                    </div>
+                    <div *ngIf="email.errors?.['pattern']">Invalid Email.</div>
+                  </div>
+
+                  <label for="Password"><b>Password</b></label>
+                  <input
+                    class="form-control"
+                    type="Password"
+                    placeholder="Enter Password"
+                    name="Password"
+                    id="Password"
+                    required
+                    #password="ngModel"
+                    [(ngModel)]="userDetails.Password"
+                  />
+
+                  <div
+                    *ngIf="
+                      password.invalid && (password.dirty || password.touched)
+                    "
+                    class="alert"
+                  >
+                    <div *ngIf="password.errors?.['required']">
+                      Password is required.
+                    </div>
+                  </div>
+                  <hr />
+
+                  <label for="email"><b>OAuth Code</b></label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter Code"
+                    #code="ngModel"
+                    [(ngModel)]="userDetails.Code"
+                  />
+
+                  <hr />
+
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                  </button>
+                </div>
+
+                <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox ml-1">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="basic_checkbox_1"
+                      />
+                      <label class="custom-control-label" for="basic_checkbox_1"
+                        >Remember</label
+                      >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <a routerLink="/forgot-password">Forgot Password?</a>
+                  </div>
+                </div>
+              </form>
+              <!-- <div class="row social-btn-row">
+                <div class="col-md-6">
+                  <a href="#" class="fb btn">
+                    Login with <i class="fa fa-facebook fa-fw"></i>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                  <a href="#" class="google btn">
+                    Login with <i class="fa fa-google fa-fw"></i
+                  ></a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

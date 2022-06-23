@@ -1,0 +1,215 @@
+<app-header></app-header>
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-6 col-md-9 col-11 text-center">
+      <h3>REGISTER YOUR NGO</h3>
+      <p class="blue-text">
+        Just fill these neccessary fields<br />
+        so that we can add you to the portal.
+      </p>
+      <div class="card">
+        <h5 class="text-center mb-4">Be a part of the good cause</h5>
+        <form
+          class="form-card"
+          (ngSubmit)="onSubmit()"
+          #addTherapistForm="ngForm"
+          novalidate
+        >
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Name of your Org<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Enter your org name"
+                [(ngModel)]="ngoDetails.Name"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Location<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Enter your location"
+                [(ngModel)]="ngoDetails.Location"
+              />
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >State<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="Enter your org name"
+                [(ngModel)]="ngoDetails.State"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >District<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="district"
+                name="district"
+                placeholder="Enter your district"
+                [(ngModel)]="ngoDetails.District"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Email<span class="text-danger"> *</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your org email"
+                [(ngModel)]="ngoDetails.Email"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Phone number<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="mob"
+                name="mob"
+                placeholder="Enter contact number"
+                [(ngModel)]="ngoDetails.Phone"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Website<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="job"
+                name="job"
+                placeholder="Enter org website"
+                [(ngModel)]="ngoDetails.Website"
+              />
+            </div>
+
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Password<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="job"
+                name="job"
+                placeholder="Enter Password"
+                [(ngModel)]="ngoDetails.Password"
+              />
+            </div>
+          </div>
+          <!-- <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Enter the fields you are working on<span class="text-danger">
+                  *</span
+                ></label
+              >
+              <input
+                type="text"
+                id="ans"
+                name="ans"
+                placeholder=""
+                [(ngModel)]="ngoDetails.Fields"
+              />
+            </div>
+          </div> -->
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Enter the fields you are working on<span class="text-danger">
+                  *</span
+                ></label
+              >
+              <div class="autocomplete">
+                <div class="chips-input-container">
+                  <div class="user-chip" *ngFor="let user of userSelects">
+                    {{ user.name }}
+                    <span (click)="deleteSelects(user)" class="delete-icon-chip"
+                      >&#10060;</span
+                    >
+                  </div>
+
+                  <!-- <select
+                    class="select-input dropdown1"
+                    name="suggestion"
+                    type="text"
+                    placeholder="User"
+                    (click)="suggest()"
+                    [(ngModel)]="userSelectsString"
+                  >
+                    <option
+                      *ngFor="let s of suggestions"
+                      [ngClass]="isSelected(s) ? 'selected-suggestion' : ''"
+                      (click)="selectSuggestion(s)"
+                      [value]="s.name"
+                    >
+                      {{ s.name }}
+                    </option>
+                  </select> -->
+
+                  <input
+                    class="select-input dropdown1"
+                    name="suggestion"
+                    type="text"
+                    (click)="suggest()"
+                    [(ngModel)]="userSelectsString"
+                  />
+                </div>
+
+                <div class="autocomplete-items optionBox" *ngIf="show">
+                  <span
+                    type="button"
+                    (click)="hidebox()"
+                    class="delete-icon-chip"
+                    >&#10060;</span
+                  >
+
+                  <div
+                    *ngFor="let s of suggestions"
+                    [ngClass]="isSelected(s) ? 'selected-suggestion' : ''"
+                    (click)="selectSuggestion(s)"
+                  >
+                    {{ s.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content submit-btn">
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn-block btn-primary">
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
