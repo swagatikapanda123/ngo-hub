@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controllers/user.controller.js");
+const controller = require("../controllers/request.controller.js");
 
-// router.post("/create", controller.create);
+router.post("/create", controller.create);
 // router.get("/getAllNgos", controller.getAllNgos);
 // router.get("/ngoByLocation/:location", controller.getNgosByLocation);
 // router.get("/ngoBySector/:sector", controller.getNgosBySector);

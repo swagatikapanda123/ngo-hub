@@ -53,7 +53,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'login',
+    path: 'ngo/login',
     component: LoginPageComponent,
   },
 

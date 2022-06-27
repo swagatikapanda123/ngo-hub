@@ -36,3 +36,7 @@ const getAllNgos = (req, res) => {
       });
     });
 };
+
+module.exports = {
+  create,
+};

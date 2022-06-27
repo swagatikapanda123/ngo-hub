@@ -1,6 +1,11 @@
 import { HttpService } from './../shared/service/http.service';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  NgForm,
+} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from './../environments/environment';
@@ -48,6 +53,7 @@ export class RegisterNgoComponent implements OnInit {
   ];
 
   show: boolean = false;
+  addNgoForm: any = FormGroup;
 
   suggest() {
     this.show = true;
@@ -87,7 +93,7 @@ export class RegisterNgoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
+  onSubmit(form: NgForm): void {
     console.log(this.ngoDetails);
     console.log(this.userSelects);
 
@@ -100,10 +106,12 @@ export class RegisterNgoComponent implements OnInit {
       (res: any) => {
         console.log(res);
         Swal.fire('success', 'NGO created successfully', 'success');
+        form.reset();
       },
 
       (error: any) => {
         console.log(error);
+        Swal.fire('error', 'Request failed', 'error');
       }
     );
   }
