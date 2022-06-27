@@ -16,14 +16,14 @@
         </h5>
         <form
           class="form-card"
-          (ngSubmit)="onSubmit()"
-          #addTherapistForm="ngForm"
+          (ngSubmit)="onSubmit(requestForm)"
+          #requestForm="ngForm"
           novalidate
         >
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Name <span class="text-danger"> *</span></label
+                >Your Name <span class="text-danger"> *</span></label
               >
               <input
                 type="text"
@@ -34,22 +34,8 @@
               />
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
-              <label class="form-control-label px-3"
-                >City<span class="text-danger"> *</span></label
-              >
-              <input
-                type="text"
-                id="lname"
-                name="lname"
-                placeholder="Enter your City"
-                [(ngModel)]="Request.City"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-between text-left">
-            <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3">
-                Email<span class="text-danger"> *</span>
+                Your Email<span class="text-danger"> *</span>
               </label>
               <input
                 type="email"
@@ -59,9 +45,11 @@
                 [(ngModel)]="Request.Email"
               />
             </div>
+          </div>
+          <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Phone number<span class="text-danger"> *</span></label
+                >Your Phone number<span class="text-danger"> *</span></label
               >
               <input
                 type="text"
@@ -69,6 +57,18 @@
                 name="mob"
                 placeholder="Enter contact number"
                 [(ngModel)]="Request.Phone"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                City<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Enter your City"
+                [(ngModel)]="Request.City"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@
                 type="text"
                 id="state"
                 name="state"
-                placeholder="Enter your org name"
+                placeholder="Enter state"
                 [(ngModel)]="Request.State"
               />
             </div>
@@ -103,28 +103,28 @@
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Address<span class="text-danger"> *</span></label
+                >Affected Location<span class="text-danger"> *</span></label
               >
               <input
                 type="text"
                 id="job"
                 name="job"
-                placeholder="Enter org Address"
+                placeholder="Enter address of the location"
                 [(ngModel)]="Request.Address"
               />
             </div>
 
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Description<span class="text-danger"> *</span></label
+                >Problem Description<span class="text-danger"> *</span></label
               >
-              <input
-                type="textarea"
+              <textarea
+                type="text"
                 id="job"
                 name="job"
                 placeholder="Enter Description"
                 [(ngModel)]="Request.Description"
-              />
+              ></textarea>
             </div>
           </div>
 

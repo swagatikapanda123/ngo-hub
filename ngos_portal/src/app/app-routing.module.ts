@@ -63,7 +63,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'requisition-page',
+    path: 'requisition-page/:id',
     component: RequestPageComponent,
   },
 ];

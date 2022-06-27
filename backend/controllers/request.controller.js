@@ -11,6 +11,7 @@ const create = (req, res, next) => {
     Status: "requested",
     Request_date: req.body.Request_date,
     Description: req.body.Description,
+    NgoDetails: req.body.NgoDetails,
   });
   requests
     .save()

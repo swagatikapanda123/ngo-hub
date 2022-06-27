@@ -85,33 +85,24 @@ const getAllNgos = (req, res) => {
     });
 };
 
-const getSessionByUser = (req, res) => {
-  Sessions.find({ UserId: req.params.userId })
-    .then((session) => {
-      console.log(session);
-      res.send(session);
-    })
-    .catch((error) => {
-      return res.status(404).send({
-        message: "session not found with id " + req.params.userId,
-      });
-    });
-};
-
-const getSessionById = (req, res) => {
-  Sessions.find(req.body.filters)
-    .then((note) => {
-      console.log(note);
-      res.send(note);
+const getNgoById = (req, res) => {
+  Ngos.findOne({ _id: req.params.id })
+    .then((data) => {
+      if (!data) {
+        return res.status(404).send({
+          message: "session not found with id " + req.params.id,
+        });
+      }
+      res.send(data);
     })
     .catch((err) => {
       if (err.kind === "ObjectId") {
         return res.status(404).send({
-          message: "Note not found with id " + req.params.userId,
+          message: "ngo not found with id " + req.params.id,
         });
       }
       return res.status(500).send({
-        message: "Error retrieving note with id " + req.params.userId,
+        message: "error retrieving ngo with id " + req.params.id,
       });
     });
 };
@@ -177,85 +168,6 @@ const deleteSession = (req, res) => {
     });
 };
 
-const assignToTherapist = (req, res) => {
-  // tenantId: req.body.tenantId,
-  Sessions.findByIdAndUpdate(
-    req.params.id,
-    {
-      userId: req.body.userId,
-      therapistId: req.body.therapistId,
-      isAssignedToTherapist: true,
-    },
-    { new: true }
-  )
-    .then((user) => {
-      console.log(user);
-      res.send(user);
-    })
-    .catch((err) => {
-      console.log(err);
-      if (err.kind === "ObjectId") {
-        return res.status(404).send({
-          message: " not found with id ",
-        });
-      }
-      return res.status(500).send({
-        message: "Error retrieving device with id ",
-      });
-    });
-};
-
-const findOne = (req, res) => {
-  Sessions.findOne({ _id: req.params.sessionId })
-    .then((note) => {
-      if (!note) {
-        return res.status(404).send({
-          message: "session not found with id " + req.params.sessionId,
-        });
-      }
-      res.send(note);
-    })
-    .catch((err) => {
-      if (err.kind === "ObjectId") {
-        return res.status(404).send({
-          message: "session not found with id " + req.params.sessionId,
-        });
-      }
-      return res.status(500).send({
-        message: "session retrieving note with id " + req.params.sessionId,
-      });
-    });
-};
-
-const updateCalendlyData = (req, res, next) => {
-  Sessions.find({ TherapistID: req.params.userId })
-    .then((session) => {
-      console.log("jhksdhksjkdfhskdhkj", session);
-      let objToUpdate = {
-        SchedulingUrl: req.body.SchedulingUrl,
-      };
-      session.map((item) => {
-        Sessions.findByIdAndUpdate(item._id, objToUpdate, { new: true })
-          .then((note) => {
-            if (!note) {
-              return res.status(404).send({
-                message: "Note not found with id " + req.params.userId,
-              });
-            }
-            console.log(note);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      });
-    })
-    .catch((error) => {
-      return res.status(404).send({
-        message: "session not found with id " + req.params.userId,
-      });
-    });
-};
-
 const login = (req, res, next) => {
   Ngos.findOne({ Email: req.body.Email })
     .then((ngo) => {
@@ -265,7 +177,7 @@ const login = (req, res, next) => {
         });
       }
       bcrypt
-        .compare(req.body.Password, user.Password)
+        .compare(req.body.Password, ngo.Password)
         .then((valid) => {
           if (!valid) {
             return res.status(401).json({
@@ -300,4 +212,5 @@ module.exports = {
   getNgosByLocation,
   login,
   getNgosBySector,
+  getNgoById,
 };
