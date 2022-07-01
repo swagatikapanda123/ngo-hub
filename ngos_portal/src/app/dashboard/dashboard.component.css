@@ -28,3 +28,15 @@ a:hover, a:active, a:focus {
   outline: none;
   text-decoration: none;
 }
+
+
+.search-btn {
+  background-color:#fafaff;
+}
+
+
+.search-btn:hover {
+  background-color:#4fd1eb9b;
+  transition: 0.7s;
+  color: #fff;
+}
