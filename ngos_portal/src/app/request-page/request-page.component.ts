@@ -15,6 +15,7 @@ export class RequestPageComponent implements OnInit {
   Request: any = {};
   id: any = '';
   ngo_details: any = {};
+  ngo_id: any = '';
   constructor(
     private http: HttpService,
     private router: Router,
@@ -31,6 +32,7 @@ export class RequestPageComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.ngo_details = res;
+        this.ngo_id = res._id;
       },
 
       (error: any) => {
@@ -41,6 +43,7 @@ export class RequestPageComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     this.Request.NgoDetails = this.ngo_details;
+    this.Request.ngo_id = this.ngo_id;
     console.log(this.Request);
     this.http.post(`request/create`, this.Request).subscribe(
       (res: any) => {

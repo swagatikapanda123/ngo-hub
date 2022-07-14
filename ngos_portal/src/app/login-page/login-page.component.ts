@@ -30,6 +30,7 @@ export class LoginPageComponent implements OnInit {
       (res: any) => {
         console.log(res);
         localStorage.setItem('token', res.token);
+        localStorage.setItem('id', res.ngoId);
         this.router.navigate(['ngo-dashboard']);
       },
 

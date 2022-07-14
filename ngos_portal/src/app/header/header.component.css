@@ -5,7 +5,7 @@ a {
 }
 
 a:hover, a:active, a:focus {
-  color: #0b6bd3;
+  color: #007bff;
   outline: none;
   text-decoration: none;
 }
@@ -70,8 +70,8 @@ font-family: 'Times New Roman', Times, serif;
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
   color: #004289;
   font-weight: 500;
   white-space: nowrap;
@@ -82,6 +82,11 @@ font-family: 'Times New Roman', Times, serif;
   line-height: 0;
   margin-left: 5px;
 }
+
+.navbar a:active{
+  color: #007bff;
+}
+
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
   color: #007bff;
 }

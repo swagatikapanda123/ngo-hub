@@ -4,7 +4,7 @@ const controller = require("../controllers/request.controller.js");
 
 router.post("/create", controller.create);
 // router.get("/getAllNgos", controller.getAllNgos);
-// router.get("/ngoByLocation/:location", controller.getNgosByLocation);
+router.get("/requestByNgo/:id", controller.getRequestByNgo);
 // router.get("/ngoBySector/:sector", controller.getNgosBySector);
 
 module.exports = router;

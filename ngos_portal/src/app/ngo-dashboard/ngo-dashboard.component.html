@@ -1,1 +1,338 @@
-<h1>ngo dashboard</h1>
+<body>
+  <app-header></app-header>
+
+  <!-- End Hero Section -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <h3>NGO DASHBOARD</h3>
+          <p>
+            Welcome to NGO HUB, We gather NGO information under one portal that
+            will serve the people in time of adversity.
+          </p>
+        </header>
+
+        <div class="row about-container">
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <p>
+              We intend to address a real-world issue by establishing a platform
+              that will help public getting NGOs information at an instant when
+              needed. It has been realised that residents of one city are
+              unaware of local non-governmental organisations (NGOs) that can
+              help them in an emergency. Accessing the appropriate NGO or making
+              any form of contact is also difficult, and as a result, many
+              people are unable to receive assistance, prompting us to create
+              something that would connect NGOs with users.
+            </p>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon">
+                <i class="fa fa-check-circle"></i>
+              </div>
+              <h4 class="title"><a href="">NGOs Working in Your Area</a></h4>
+              <p class="description">
+                Find out about non-governmental organisations (NGOs) that are
+                active in your area.
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fa fa-check-circle"></i></div>
+              <h4 class="title"><a href="">Validated Information</a></h4>
+              <p class="description">
+                NGOs that are listed on the platform have been registered.
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fa fa-check-circle"></i></div>
+              <h4 class="title">
+                <a href="">Registered NGO can check request</a>
+              </h4>
+              <p class="description">
+                NGOs can access the dashboard and view the request by logging in
+                with the provided credentials.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 background order-lg-2" data-aos="zoom-in">
+            <img src="assets/img/5236.jpg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+    <div class="container" style="margin-top: 1%">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <h4 class="title text-center" style="color: #fff">Requests</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Sl No.</th>
+                <th>Name</th>
+                <!-- <th>Field</th> -->
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Problem</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of requests; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.Name }}</td>
+                <!-- <td>
+                  <div *ngFor="let field of item.Field">{{ field.name }}</div>
+                </td> -->
+                <td>{{ item.Email }}</td>
+                <td>{{ item.Phone }}</td>
+                <td>{{ item.Description }}</td>
+                <td>{{ item.Status }}</td>
+
+                <td>
+                  <a routerLink="/requisition-page/{{ item._id }}">
+                    <div class="d-flex">Accept</div></a
+                  >
+                  <a routerLink="/requisition-page/{{ item._id }}">
+                    <div class="d-flex">Reject</div></a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="section-bg">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <h3>Services</h3>
+          <p>We provide information regarding NGOs available near your area.</p>
+        </header>
+
+        <div class="row justify-content-center">
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-handshake-o" style="color: #ff689b"></i>
+              </div>
+              <h4 class="title"><a href="">Help</a></h4>
+              <p class="description">
+                Voluptatum deleniti atque corrupti quos dolores et quas
+                molestias excepturi sint occaecati cupiditate non provident
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-paper-plane" style="color: #e9bf06"></i>
+              </div>
+              <h4 class="title"><a href="">Volunteer</a></h4>
+              <p class="description">
+                You can volunteer at any organisation who share the same motive
+                as you.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-paw" style="color: #3fcdc7"></i>
+              </div>
+              <h4 class="title"><a href="">Collaborate</a></h4>
+              <p class="description">
+                Collaboration with team has been made easy and seamless.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-thumbs-up" style="color: #41cf2e"></i>
+              </div>
+              <h4 class="title"><a href="">Contribute</a></h4>
+              <p class="description">
+                Even a small help counts. Contribute to any organization that
+                might help them helping someone in need.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-trophy" style="color: #d6ff22"></i>
+              </div>
+              <h4 class="title"><a href="">Participate</a></h4>
+              <p class="description">
+                When teams organize any event or you want to contribute to
+                society in any mannrer you can easily establish communication
+                with the NGO and partcipate
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-5"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-users" style="color: #4680ff"></i>
+              </div>
+              <h4 class="title"><a href="">Find a friend</a></h4>
+              <p class="description">
+                During difficult times we help you connect to a friend who might
+                help you get through the situation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="section-header">
+          <h3>Contact Us</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="map mb-4 mb-lg-0">
+              <!-- <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                frameborder="0"
+                style="border: 0; width: 100%; height: 340px"
+                allowfullscreen
+              ></iframe> -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7484.870413667867!2d85.85171452447743!3d20.282245445629968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190a075fceec6b%3A0xd06d532a5ba63b32!2sBomikhal%2C%20Jharapada%2C%20Bhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1656062452506!5m2!1sen!2sin"
+                frameborder="0"
+                style="border: 0; width: 100%; height: 340px"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-5 info">
+                <i class="bi bi-geo-alt"></i>
+                <p>A108 Adam Street, NY 535022</p>
+              </div>
+              <div class="col-md-4 info">
+                <i class="bi bi-envelope"></i>
+                <p>info@example.com</p>
+              </div>
+              <div class="col-md-3 info">
+                <i class="bi bi-phone"></i>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+
+            <div class="form">
+              <form
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="form-group col-lg-6">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-lg-6 mt-3 mt-lg-0">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="5"
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" title="Send Message">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
+  <app-footer></app-footer>
+</body>

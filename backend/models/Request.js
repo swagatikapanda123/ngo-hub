@@ -15,6 +15,7 @@ const requestSchema = new Schema(
     Request_date: String,
     Description: String,
     NgoDetails: Object,
+
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   },

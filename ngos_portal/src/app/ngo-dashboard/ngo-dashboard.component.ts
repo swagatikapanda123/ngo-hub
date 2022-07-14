@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class NgoDashboardComponent implements OnInit {
   token: any = '';
+  ngoId: any = '';
+  requests: any = {};
   constructor(
     private http: HttpService,
     private router: Router,
@@ -24,5 +26,24 @@ export class NgoDashboardComponent implements OnInit {
     if (!this.token) {
       this.router.navigate(['ngo/login']);
     }
+
+    // this.route.params.subscribe((params: any) => {
+    //   console.log(params);
+    //   this.sector = params.sector;
+    // });
+
+    this.ngoId = localStorage.getItem('id');
+
+    this.http.get(`request/requestByNgo/${this.ngoId}`).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.requests = res;
+        console.log(this.requests);
+      },
+
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }
