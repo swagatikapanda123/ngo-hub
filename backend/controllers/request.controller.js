@@ -46,12 +46,11 @@ const mailer = (email) => {
     from: "info.ngohub@gmail.com",
     to: email,
     //subject: otp,
-    subject: "New Request from NGOHUB",
+    subject: "Registration Successful",
     text:
-      "You are receiving this because someone has requested the reset of the password for your account.\n\n" +
-      "Please enter the following code  to complete the process:\n\n" +
+      "You have been successfully registred into NGOHUB. \n\n" +
       "\n\n\n" +
-      "If you did not request this, please ignore this email and your password will remain unchanged.\n",
+      "Thank you.\n",
   };
 
   transport.sendMail(mailOptions, function (error, info) {
@@ -85,6 +84,45 @@ const getRequestByNgo = (req, res) => {
     });
 };
 
+const updateRequest = (req, res) => {
+  Requests.findOne({ _id: req.params.id })
+    .then((note) => {
+      console.log(note);
+      let objToUpdate = {
+        Status: req.body.Status,
+      };
+      Requests.findByIdAndUpdate(note._id, objToUpdate, { new: true })
+        .then((note) => {
+          if (!note) {
+            return res.status(404).send({
+              message: "Note not found with id " + req.params.id,
+            });
+          }
+          res.send(note);
+        })
+        .catch((err) => {
+          if (err.kind === "ObjectId") {
+            return res.status(404).send({
+              message: "Therapist not found with id " + req.params.id,
+            });
+          }
+          return res.status(500).send({
+            message: "Error updating note with id " + req.params.id,
+          });
+        });
+    })
+    .catch((err) => {
+      if (err.kind === "ObjectId") {
+        return res.status(404).send({
+          message: "Therapist not found with id " + req.params.id,
+        });
+      }
+      return res.status(500).send({
+        message: "Error retrieving Therapist with id " + req.params.id,
+      });
+    });
+};
+
 const getAllNgos = (req, res) => {
   Ngos.find()
     .then((note) => {
@@ -100,4 +138,5 @@ const getAllNgos = (req, res) => {
 module.exports = {
   create,
   getRequestByNgo,
+  updateRequest,
 };

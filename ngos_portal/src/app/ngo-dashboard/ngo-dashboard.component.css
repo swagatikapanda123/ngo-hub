@@ -45,3 +45,15 @@ a:hover, a:active, a:focus {
 #about{
   margin-top: 20px;
 }
+
+.accept-icon{
+  color: rgb(30, 200, 39);
+  display:inline-block;
+  padding-right: 15px;
+}
+
+
+.reject-icon{
+  color: rgb(209, 26, 26);
+  display:inline-block;
+}

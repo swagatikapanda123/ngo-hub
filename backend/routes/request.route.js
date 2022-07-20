@@ -6,5 +6,6 @@ router.post("/create", controller.create);
 // router.get("/getAllNgos", controller.getAllNgos);
 router.get("/requestByNgo/:id", controller.getRequestByNgo);
 // router.get("/ngoBySector/:sector", controller.getNgosBySector);
+router.post("/updateRequest/:id", controller.updateRequest);
 
 module.exports = router;

@@ -46,4 +46,40 @@ export class NgoDashboardComponent implements OnInit {
       }
     );
   }
+
+  accept(id: any): void {
+    this.http
+      .post(`request/updateRequest/${id}`, { Status: 'accepted' })
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+          this.requests = res;
+          Swal.fire('success', 'Request Accepted', 'success');
+          this.ngOnInit();
+        },
+
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
+
+  reject(id: any): void {
+    this.ngoId = localStorage.getItem('id');
+
+    this.http
+      .post(`request/updateRequest/${id}`, { Status: 'rejected' })
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+          this.requests = res;
+          Swal.fire('success', 'Request Denied', 'success');
+          this.ngOnInit();
+        },
+
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
 }

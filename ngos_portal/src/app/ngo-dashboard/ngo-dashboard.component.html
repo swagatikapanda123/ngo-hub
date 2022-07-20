@@ -8,7 +8,7 @@
     <section id="about">
       <div class="container" data-aos="fade-up">
         <header class="section-header">
-          <h3>NGO DASHBOARD</h3>
+          <h3 style="margin-top: 10px">NGO DASHBOARD</h3>
           <p>
             Welcome to NGO HUB, We gather NGO information under one portal that
             will serve the people in time of adversity.
@@ -64,52 +64,54 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- End About Section -->
-    <div class="container" style="margin-top: 1%">
-      <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-          <h4 class="title text-center" style="color: #fff">Requests</h4>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Sl No.</th>
-                <th>Name</th>
-                <!-- <th>Field</th> -->
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Problem</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of requests; let i = index">
-                <td>{{ i + 1 }}</td>
-                <td>{{ item.Name }}</td>
-                <!-- <td>
-                  <div *ngFor="let field of item.Field">{{ field.name }}</div>
-                </td> -->
-                <td>{{ item.Email }}</td>
-                <td>{{ item.Phone }}</td>
-                <td>{{ item.Description }}</td>
-                <td>{{ item.Status }}</td>
+      <div class="container" style="margin-top: 1%">
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <h4 class="title text-center">Requests</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Sl No.</th>
+                  <th>Name</th>
+                  <!-- <th>Field</th> -->
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Problem</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of requests; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ item.Name }}</td>
+                  <!-- <td>
+                    <div *ngFor="let field of item.Field">{{ field.name }}</div>
+                  </td> -->
+                  <td>{{ item.Email }}</td>
+                  <td>{{ item.Phone }}</td>
+                  <td>{{ item.Description }}</td>
+                  <td>{{ item.Status }}</td>
 
-                <td>
-                  <a routerLink="/requisition-page/{{ item._id }}">
-                    <div class="d-flex">Accept</div></a
-                  >
-                  <a routerLink="/requisition-page/{{ item._id }}">
-                    <div class="d-flex">Reject</div></a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <td>
+                    <div class="accept-icon" (click)="accept(item._id)">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="reject-icon" (click)="reject(item._id)">
+                      <i class="fa fa-close" aria-hidden="true"></i>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- End About Section -->
+
     <!-- ======= Services Section ======= -->
     <section id="services" class="section-bg">
       <div class="container" data-aos="fade-up">
