@@ -50,25 +50,59 @@
               <label class="form-control-label px-3"
                 >State<span class="text-danger"> *</span></label
               >
+              <!--
               <input
                 type="text"
                 id="state"
                 name="state"
                 placeholder="Enter your org name"
                 [(ngModel)]="ngoDetails.State"
-              />
+              /> -->
+
+              <select
+                class="form-control"
+                (change)="onChangeState($any($event.target).value)"
+                name="dropdownOption"
+                id="dropdownOption"
+                [(ngModel)]="ngoDetails.State"
+              >
+                <option *ngIf="stateInfo == ''" value="-1">
+                  --Select State--
+                </option>
+                <option
+                  *ngFor="let state of stateInfo; let j = index"
+                  value="{{ j }}"
+                >
+                  {{ state.StateName }}
+                </option>
+              </select>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >District<span class="text-danger"> *</span></label
+                >District/City<span class="text-danger"> *</span></label
               >
-              <input
+
+              <select
+                class="form-control"
+                [(ngModel)]="ngoDetails.District"
+                name="dropdownOption"
+                id="dropdownOption"
+                placeholder="Choose Region"
+              >
+                <option
+                  *ngFor="let city of cityInfo; let k = index"
+                  value="{{ city }}"
+                >
+                  {{ city }}
+                </option>
+              </select>
+              <!-- <input
                 type="text"
                 id="district"
                 name="district"
                 placeholder="Enter your district"
                 [(ngModel)]="ngoDetails.District"
-              />
+              /> -->
             </div>
           </div>
           <div class="row justify-content-between text-left">

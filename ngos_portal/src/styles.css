@@ -1255,3 +1255,8 @@ section {
 #footer .credits a:hover {
   color: #f1f7ff;
 }
+
+
+agm-map {
+  height: 400px;
+}

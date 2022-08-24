@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import Swal from 'sweetalert2';
+import { CountriesService } from '../shared/module/countries.service';
+declare var $: any;
 
 @Component({
   selector: 'app-register-ngo',
@@ -18,10 +20,15 @@ import Swal from 'sweetalert2';
 })
 export class RegisterNgoComponent implements OnInit {
   ngoDetails: any = {};
+  stateInfo: any = [];
+  countryInfo: any = [];
+  cityInfo: any = [];
+  region: any = {};
   constructor(
     private http: HttpService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private country: CountriesService
   ) {}
 
   userSelectsString: any = '';
@@ -91,7 +98,30 @@ export class RegisterNgoComponent implements OnInit {
     this.show = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.country.allCountries().subscribe(
+      (data2) => {
+        this.countryInfo = data2.Countries;
+        //console.log('Data:', this.countryInfo);
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('complete');
+        this.stateInfo = this.countryInfo[100].States;
+        this.cityInfo = this.stateInfo[0].Cities;
+      }
+    );
+  }
+
+  onChangeState(stateValue: any) {
+    console.log(stateValue);
+    this.cityInfo = this.stateInfo[stateValue].Cities;
+    //console.log(this.cityInfo);
+  }
 
   onSubmit(form: NgForm): void {
     console.log(this.ngoDetails);

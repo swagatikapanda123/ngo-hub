@@ -20,6 +20,53 @@ export class DashboardComponent implements OnInit {
   countryInfo: any = [];
   cityInfo: any = [];
 
+  zoom: number = 15;
+  lat: number = 20.2961;
+  lng: number = 85.8245;
+  lastInfoWindow: any;
+
+  markers: any[] = [
+    {
+      lat: 20.2961,
+      lng: 85.8245,
+      label: { color: 'white', text: 'P1' },
+      draggable: true,
+    },
+    // {
+    //   lat: 28.625293,
+    //   lng: 79.817926,
+    //   label: { color: 'white', text: 'P2' },
+    //   draggable: false,
+    // },
+    // {
+    //   lat: 28.625182,
+    //   lng: 79.81464,
+    //   label: { color: 'white', text: 'P3' },
+    //   draggable: true,
+    // },
+  ];
+
+  markerClicked(marker: any, index: number, infoWindowRef: any) {
+    if (this.lastInfoWindow) {
+      this.lastInfoWindow.close();
+    }
+    this.lastInfoWindow = infoWindowRef;
+    console.log(marker, index);
+  }
+
+  mapClicked($event: any) {
+    this.markers.push({
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: true,
+    });
+  }
+
+  markerDragEnd($event: any, index: number) {
+    console.log($event.coords.lat);
+    console.log($event.coords.lng);
+  }
+
   slides = [
     { img: 'https://via.placeholder.com/600.png/09f/fff' },
     { img: 'https://via.placeholder.com/600.png/021/fff' },
@@ -79,15 +126,22 @@ export class DashboardComponent implements OnInit {
         //console.log('Data:', this.countryInfo);
       },
       (err) => console.log(err),
-      () => console.log('complete')
+      () => {
+        console.log('complete');
+        this.stateInfo = this.countryInfo[100].States;
+        this.cityInfo = this.stateInfo[0].Cities;
+      }
     );
   }
 
-  onChangeCountry(countryValue: any) {
-    this.stateInfo = this.countryInfo[countryValue].States;
-    this.cityInfo = this.stateInfo[0].Cities;
-    console.log(this.cityInfo);
-  }
+  // onChangeCountry(countryValue: any) {
+  //   console.log('first');
+  //   console.log(countryValue);
+  //   this.stateInfo = this.countryInfo[countryValue].States;
+  //   this.cityInfo = this.stateInfo[0].Cities;
+  //   console.log(this.cityInfo);
+  //   console.log(this.stateInfo);
+  // }
 
   onChangeState(stateValue: any) {
     this.cityInfo = this.stateInfo[stateValue].Cities;

@@ -4,7 +4,29 @@
   <section id="hero" class="clearfix">
     <div class="container" data-aos="fade-up">
       <div class="hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <img src="assets/img/hero-img.svg" alt="" class="img-fluid" />
+        <!-- <img src="assets/img/hero-img.svg" alt="" class="img-fluid" /> -->
+        <agm-map
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+          [zoomControl]="false"
+          (mapClick)="mapClicked($event)"
+        >
+          <agm-marker
+            *ngFor="let marker of markers; let i = index"
+            (markerClick)="markerClicked(marker, i, infoWindowRef)"
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            [label]="marker.label"
+            [markerDraggable]="marker.draggable"
+            (dragEnd)="markerDragEnd($event, i)"
+          >
+            <agm-info-window #infoWindowRef>
+              <b>{{ marker.lat }}, {{ marker.lng }}</b>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
       </div>
 
       <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
@@ -17,7 +39,7 @@
         <div>
           <form (ngSubmit)="onSubmit()" #addTherapistForm="ngForm" novalidate>
             <div class="form-group col-md-4">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label style="color: #ffff">Select Country</label>
                 <select
                   class="form-control"
@@ -30,7 +52,7 @@
                     {{ country.CountryName }}
                   </option>
                 </select>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <label style="color: #ffff">Select State</label>

@@ -17,6 +17,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NgoDashboardComponent } from './ngo-dashboard/ngo-dashboard.component';
 import { ListNgoBySectorComponent } from './list-ngo-by-sector/list-ngo-by-sector.component';
 import { RequestPageComponent } from './request-page/request-page.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,18 @@ import { RequestPageComponent } from './request-page/request-page.component';
     ListNgoBySectorComponent,
     RequestPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, SlickCarouselModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    SlickCarouselModule,
+    AgmCoreModule.forRoot({
+      apiKey: '',
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+//AIzaSyDpEqauXWZEF99qOZuKNkZKmQwJJ01s2l4
