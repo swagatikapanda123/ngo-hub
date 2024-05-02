@@ -1,0 +1,10 @@
+.no-content-message {
+  font-size: 1.2rem;
+  color: #666; /* Change color to your preference */
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa; /* Change background color to your preference */
+  border: 1px solid #ced4da; /* Change border color to your preference */
+  border-radius: 5px;
+  margin-top: 20px;
+}

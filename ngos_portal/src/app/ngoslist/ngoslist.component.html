@@ -4,37 +4,42 @@
     <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Sl No.</th>
-              <th>Name</th>
-              <!-- <th>Field</th> -->
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Website</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of ngos; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ item.Name }}</td>
-              <!-- <td>
+        <ng-container *ngIf="ngos.length > 0; else noContent">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Sl No.</th>
+                <th>Name</th>
+                <!-- <th>Field</th> -->
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ngos; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.Name }}</td>
+                <!-- <td>
                 <div *ngFor="let field of item.Field">{{ field.name }}</div>
               </td> -->
-              <td>{{ item.Email }}</td>
-              <td>{{ item.Phone }}</td>
-              <td>{{ item.Website }}</td>
+                <td>{{ item.Email }}</td>
+                <td>{{ item.Phone }}</td>
+                <td>{{ item.Website }}</td>
 
-              <td>
-                <a routerLink="/requisition-page/{{ item._id }}">
-                  <div class="d-flex">Request</div></a
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <td>
+                  <a routerLink="/requisition-page/{{ item._id }}">
+                    <div class="d-flex">Request</div></a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+        <ng-template #noContent>
+          <div class="no-content-message">No Data Found!</div>
+        </ng-template>
       </div>
     </div>
   </div>
