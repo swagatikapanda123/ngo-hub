@@ -18,6 +18,7 @@ import { NgoDashboardComponent } from './ngo-dashboard/ngo-dashboard.component';
 import { ListNgoBySectorComponent } from './list-ngo-by-sector/list-ngo-by-sector.component';
 import { RequestPageComponent } from './request-page/request-page.component';
 import { AgmCoreModule } from '@agm/core';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AgmCoreModule } from '@agm/core';
     NgoDashboardComponent,
     ListNgoBySectorComponent,
     RequestPageComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

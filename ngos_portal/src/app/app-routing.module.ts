@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { RequestPageComponent } from './request-page/request-page.component';
 import { ListNgoBySectorComponent } from './list-ngo-by-sector/list-ngo-by-sector.component';
 import { NgoDashboardComponent } from './ngo-dashboard/ngo-dashboard.component';
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: HomeComponent,
   },
   {
     path: 'dashboard',
