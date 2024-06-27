@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: DashboardComponent,
   },
   {
     path: 'dashboard',
@@ -65,6 +65,10 @@ const routes: Routes = [
 
   {
     path: 'requisition-page/:id',
+    component: RequestPageComponent,
+  },
+  {
+    path: 'requisition-page',
     component: RequestPageComponent,
   },
 ];

@@ -1,5 +1,56 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.main-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.introduction {
+  max-width: 600px;
+}
+
+.cta-buttons {
+  margin-top: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+
 body {
-  background: rgba(89, 47, 240, 0.799);
+  background: #00428a;
   color: #444;
   font-family: sans-serif;
 }
@@ -39,4 +90,9 @@ a:hover, a:active, a:focus {
   background-color:  #a28ef4;;
   transition: 0.7s;
   color: #fff;
+}
+
+#contact h3,
+#contact p {
+  color: white;
 }
