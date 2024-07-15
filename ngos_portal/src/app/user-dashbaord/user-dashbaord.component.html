@@ -1,0 +1,49 @@
+<body>
+  <app-header></app-header>
+  <section id="dashboard" class="container">
+    <div class="overview-cards">
+      <div class="card">
+        <h3>Total Requests</h3>
+        <p id="total-requests">[X]</p>
+      </div>
+      <div class="card">
+        <h3>Active Requests</h3>
+        <p id="active-requests">[Y]</p>
+      </div>
+      <div class="card">
+        <h3>Volunteers/NGOs</h3>
+        <p id="volunteers-ngos">[Z]</p>
+      </div>
+      <div class="card">
+        <h3>Unread Notifications</h3>
+        <p id="unread-notifications">[N]</p>
+      </div>
+    </div>
+
+    <div class="recent-activities">
+      <h3>Recent Activities</h3>
+      <ul id="activities-list">
+        <li>Activity 1: Description, Timestamp</li>
+        <li>Activity 2: Description, Timestamp</li>
+        <li>Activity 3: Description, Timestamp</li>
+        <!-- Add more activities as needed -->
+      </ul>
+      <a href="#" class="view-all">View All Activities</a>
+    </div>
+
+    <div class="quick-actions">
+      <h3>Quick Actions</h3>
+      <button onclick="location.href='/post-request'" class="btn-primary">
+        Post New Request
+      </button>
+      <button
+        onclick="location.href='/search-volunteers-ngos'"
+        class="btn-secondary"
+      >
+        Search Volunteers/NGOs
+      </button>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</body>

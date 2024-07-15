@@ -7,6 +7,7 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const ngoRoute = require("./routes/ngo.route.js");
 const requestRoute = require("./routes/request.route.js");
+const userRounte = require("./routes/user.route.js");
 
 const {
   MONGO_USER,
@@ -47,6 +48,7 @@ app.use(cors());
 
 app.use("/api/ngo", ngoRoute);
 app.use("/api/request", requestRoute);
+app.use("/api/users", userRounte);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

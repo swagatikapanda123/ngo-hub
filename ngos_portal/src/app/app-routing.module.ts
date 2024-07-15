@@ -1,3 +1,4 @@
+import { UserDashbaordComponent } from './user-dashbaord/user-dashbaord.component';
 import { HomeComponent } from './home/home.component';
 import { RequestPageComponent } from './request-page/request-page.component';
 import { ListNgoBySectorComponent } from './list-ngo-by-sector/list-ngo-by-sector.component';
@@ -57,12 +58,14 @@ const routes: Routes = [
     path: 'ngo/login',
     component: LoginPageComponent,
   },
-
+  {
+    path: 'users-dashboard',
+    component: UserDashbaordComponent,
+  },
   {
     path: 'ngo-dashboard',
     component: NgoDashboardComponent,
   },
-
   {
     path: 'requisition-page/:id',
     component: RequestPageComponent,

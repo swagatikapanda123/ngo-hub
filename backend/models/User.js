@@ -3,24 +3,17 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    Name: {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    role: {
       type: String,
+      required: true,
+      enum: ["NGO", "Volunteer", "Admin"], // only allow these values
     },
-    Location: {
-      type: String,
-    },
-
-    Email: {
-      type: String,
-    },
-    State: String,
-    District: String,
-    Phone: Number,
-    isDeleted: Boolean,
-    isActive: Boolean,
-    Password: String,
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    // profile_picture: { type: String, default: "" },
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
   },
   {
     timestamps: true,
