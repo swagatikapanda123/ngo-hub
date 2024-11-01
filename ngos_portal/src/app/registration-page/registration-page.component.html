@@ -1,0 +1,155 @@
+<app-header></app-header>
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div
+      class="col-xl-7 col-lg-6 col-md-9 col-11 text-center"
+      style="margin-top: 3%"
+    >
+      <h3>REGISTER</h3>
+      <p class="blue-text">Just fill these fields to create your account.</p>
+      <div class="card">
+        <h5 class="text-center mb-4">Join Us</h5>
+        <form
+          class="form-card"
+          (ngSubmit)="onSubmit(registrationForm)"
+          #registrationForm="ngForm"
+          novalidate
+        >
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Name<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                [(ngModel)]="userDetails.name"
+                required
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Email<span class="text-danger"> *</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                [(ngModel)]="userDetails.email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Password<span class="text-danger"> *</span></label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                [(ngModel)]="userDetails.password"
+                required
+              />
+            </div>
+
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Role<span class="text-danger"> *</span></label
+              >
+              <select
+                class="form-control"
+                id="role"
+                name="role"
+                [(ngModel)]="userDetails.role"
+                (change)="onRoleChange($event)"
+                required
+              >
+                <option value="">--Select Role--</option>
+                <option value="NGO">NGO</option>
+                <option value="Volunteer">Volunteer</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Fields visible only when role is NGO -->
+          <div *ngIf="userDetails.role === 'NGO'">
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3"
+                  >State<span class="text-danger"> *</span></label
+                >
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  placeholder="Enter your state"
+                  [(ngModel)]="userDetails.state"
+                  required
+                />
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3"
+                  >City<span class="text-danger"> *</span></label
+                >
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Enter your city"
+                  [(ngModel)]="userDetails.city"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3"
+                  >Pin<span class="text-danger"> *</span></label
+                >
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  placeholder="Enter your pin"
+                  [(ngModel)]="userDetails.pin"
+                  required
+                />
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3"
+                  >Fields of Work<span class="text-danger"> *</span></label
+                >
+                <input
+                  type="text"
+                  id="fields_of_work"
+                  name="fields_of_work"
+                  placeholder="e.g. Education, Women Welfare"
+                  [(ngModel)]="userDetails.fields_of_work"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content submit-btn">
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn-block btn-primary">
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

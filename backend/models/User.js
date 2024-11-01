@@ -9,11 +9,12 @@ const userSchema = new Schema(
     role: {
       type: String,
       required: true,
-      enum: ["NGO", "Volunteer", "Admin"], // only allow these values
+      enum: ["NGO", "Volunteer", "Admin"],
     },
-    // profile_picture: { type: String, default: "" },
-    created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now },
+    state: { type: String }, // Only for NGOs
+    city: { type: String }, // Only for NGOs
+    pin: { type: Number }, // Only for NGOs
+    fields_of_work: { type: [String] }, // Array to store multiple fields (education, women welfare, etc.)
   },
   {
     timestamps: true,

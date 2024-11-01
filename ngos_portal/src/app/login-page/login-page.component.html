@@ -1,5 +1,4 @@
-<div class="login-page">
-  <!-- partial:index.partial.html -->
+<!-- <div class="login-page">
   <div class="box-form">
     <div class="left">
       <div class="overlay">
@@ -70,7 +69,7 @@
             </div>
             <hr />
             <div class="remember-me--forget-password">
-              <!-- Angular -->
+
               <label>
                 <input type="checkbox" name="item" checked />
                 <span class="text-checkbox">Remember me</span>
@@ -91,5 +90,90 @@
       <br /><br />
     </div>
   </div>
-  <!-- partial -->
+</div> -->
+
+<div class="login-page">
+  <div class="box-form">
+    <div class="left">
+      <div class="overlay">
+        <h1>NGOHUB</h1>
+        <p>A dedicated platform to see who needs your help</p>
+        <span>
+          <p>Login with social media</p>
+          <a href="#">
+            <i class="fa fa-facebook" aria-hidden="true"></i> Login with
+            Facebook
+          </a>
+          <a href="#">
+            <i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div class="right">
+      <h5>Login</h5>
+      <p class="desc">
+        Please login to access the NGO dashboard. In case of issues, contact
+        support.
+      </p>
+
+      <div class="inputs">
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+          <div class="container form-group">
+            <b>Email</b>
+            <input
+              class="form-control"
+              type="email"
+              placeholder="Enter Email"
+              name="email"
+              id="email"
+              required
+              [pattern]="emailPattern"
+              #email="ngModel"
+              [(ngModel)]="userDetails.Email"
+            />
+            <div
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="alert"
+            >
+              <div *ngIf="email.errors?.['required']">Email is required.</div>
+              <div *ngIf="email.errors?.['pattern']">Invalid Email.</div>
+            </div>
+
+            <b>Password</b>
+            <input
+              class="form-control"
+              type="password"
+              placeholder="Enter Password"
+              name="Password"
+              id="Password"
+              required
+              #password="ngModel"
+              [(ngModel)]="userDetails.Password"
+            />
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert"
+            >
+              <div *ngIf="password.errors?.['required']">
+                Password is required.
+              </div>
+            </div>
+
+            <hr />
+            <div class="remember-me--forget-password">
+              <label>
+                <input type="checkbox" name="item" checked />
+                <span class="text-checkbox">Remember me</span>
+              </label>
+              <p>Forget password?</p>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

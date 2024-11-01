@@ -1,3 +1,4 @@
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { UserDashbaordComponent } from './user-dashbaord/user-dashbaord.component';
 import { HomeComponent } from './home/home.component';
 import { RequestPageComponent } from './request-page/request-page.component';
@@ -42,7 +43,7 @@ const routes: Routes = [
 
   {
     path: 'ngo/register',
-    component: RegisterNgoComponent,
+    component: RegistrationPageComponent,
   },
 
   {

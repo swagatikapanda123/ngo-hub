@@ -20,6 +20,9 @@ import { RequestPageComponent } from './request-page/request-page.component';
 import { AgmCoreModule } from '@agm/core';
 import { HomeComponent } from './home/home.component';
 import { UserDashbaordComponent } from './user-dashbaord/user-dashbaord.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,14 @@ import { UserDashbaordComponent } from './user-dashbaord/user-dashbaord.componen
     RequestPageComponent,
     HomeComponent,
     UserDashbaordComponent,
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     SlickCarouselModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: '',
     }),
